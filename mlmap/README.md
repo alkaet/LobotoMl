@@ -7,6 +7,7 @@ MlMap currently only consists of the `ml-server-version.nse` Nmap script.
 
 ## Usage 
 After intalling Nmap as described in the [manual](https://nmap.org/book/install.html), simply run the script as follows (replacing the ports, path and ip as appropriate):
+
 ```nmap -n --script /path/to/ml-server-version.nse ip.of.your.target -p target_ports```
 
 ## How does it work?

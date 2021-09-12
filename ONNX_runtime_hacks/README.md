@@ -3,6 +3,7 @@
 ## About
 
 The ONNX runtime hacks are a set of proof of concepts of attacks and exploits on the ONNX format and the [ONNX runtime](https://onnxruntime.ai/).
+
 Currently this folder is limited to an example showing how to write ONNX custom operators which have side effects such as arbitrary file creation (contrary to the requirements of the [ONNX specification](https://github.com/onnx/onnx)). 
 
 ## Usage
@@ -12,14 +13,17 @@ Follow the [ONNX runtime build guide](https://onnxruntime.ai/docs/how-to/build/)
 Change directory to `onnxruntime/onnxruntime/test/testdata/custom_op_library/` and backup the file `custom_op_library.cc`.
 
 Copy the proof of concept side effect inducing file there:
+
 ```cp /path/to/LobotoMl/ONNX_runtime_hacks/arbitrary_file_custom_op_library.cc ./custom_op_library.cc```
 
 Then simply build the library again with `make` *et voilà !*
 
 To run the arbitrary-file-creating model run the model loader in this repository:
+
 ```python3 /path/to/LobotoMl/ONNX_runtime_hacks/Custom_op_loader.py```
 
 You can see the Model definition using the protocol buffer compiler:
+
 ```protoc --decode=onnx.ModelProto -I /path/to/onnxruntime/cmake/external/onnx/onnx/ /path/to/onnxruntime/cmake/external/onnx/onnx/onnx.proto3 <custom_op_test.onnx > Model.txt```
 
 If you want to modify the architecture of the model you can also do so using `protoc`.
